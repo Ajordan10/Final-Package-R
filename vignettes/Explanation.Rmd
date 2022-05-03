@@ -1,0 +1,27 @@
+---
+title: "Final Project"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Final Project}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FinalProject)
+```
+#Introduction 
+
+##Constructor Function. What data set we are using and how to. 
+##Print Function 
+##The var.test(x,y) will compare the two variances. Ho: alpha2^2/alpha1^2 = 1
+##We measure this for the P Value. From the output we see a pvalue. Take 0.05 and compare. If less than 0.05 we will reject the Null. If greater than 0.05, we will fail to reject. 
+##The ttest takes the pvalue and uses it as evidence against the NULL hypothesis. Ho: mu2-mu1 =0. If less than 0.05, we will reject the null. The confidence interval gives upper and lower bounds of the estimate of the difference. 
+##tp is the paired ttest. There is no need to worry about variances since there is one sample of differences. 
