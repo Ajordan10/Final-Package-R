@@ -12,7 +12,7 @@
 #'
 #' @examples
 print.Rttest <- function(x,...) {
-  data = c(Rttest$data,Rttest$Confidence_Interval,Rttest$P.value,Rttest$Alpha)
+  data = c(obj$data,obj$Confidence_Interval,obj$P.value,obj$Alpha)
   #Rttest$data = x[["data"]][["x"]], x[["data"]][["y"]]
   #Rttest$Alpha = alpha[["Alpha"]]
   #dataframe = data.frame(Rttest$data, Rttest$Alpha)

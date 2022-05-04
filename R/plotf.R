@@ -12,19 +12,20 @@
 #' @param cex
 #'
 #' @return A plot of the data
+#' @export  plot.Rttest
+#'
 #' @export
 #'
 #' @examples
-plot.myttest = function(x, y, pch =21, bg = "blue", cex = 3){
-  plot(data,
-       pch = pch,
-       bg = bg,
-       x = "x",
-       y = "y"
-  )
+
+plot.Rttest = function(x, y, xlab ="", ylab=""){
+  data = c(obj$data,obj$Confidence_Interval,obj$P.value,obj$Alpha)
+
+
+
+  #quartz; boxplot(obj$data)
+  plot.Rttest(data = data, x = '', y = '')
 }
-Cat <- rep(c("A", "B"), c(x,y))
-data.frame(MeanValue = c(x,y), TheData = Cat) -> data
-library(ggplot2)
-TheData <- ggplot(data) + geom_boxplot(aes(x = TheData, y = MeanValue, fill = TheData))
-print(TheData)
+
+
+

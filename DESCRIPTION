@@ -2,9 +2,18 @@ Package: FinalProject
 Title: Advanced R Final Project
 Version: 0.0.0.9001
 Authors@R: 
-    person("Abby", "Jordan", , "first.last@example.com", role = c("aut", "cre"),
+    person("Abby", "Jordan", , "abby.jordan@ou.edu", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: The package is fully detailed description of ttest. 
+  Theory -- you will use t.test theory to make this package. Specifically, you will write a package that will test the NULL hypothesis that the underlying means of two populations are the same.  That is you will be testing:
+    Ho mux-muy
+    or more usefully Ho- mux-muy= 0
+  This involves using a built-in function called t.test(x,y) where x and y are samples from the respective populations. Some important experimental design structures must be taken into consideration before using the function. These considerations will be expressed through options supplied to the t.test function.
+  Considerations - 
+  If x and y are independent and the variances in the populations are equal then the test is performed using var.equal = TRUE
+  If x and y are independent and the population variances are not equal then the test is done using 
+  If the samples are "paired", that is each experimental unit is measured twice, the first goes into x and the last into y then the appropriate test is
+  The NULL hypothesis is placed in the options as mu=0 which is the default value.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -12,4 +21,8 @@ RoxygenNote: 7.1.2
 Suggests: 
     knitr,
     rmarkdown
+Imports: 
+    devtools,
+    FinalProject,
+    usethis
 VignetteBuilder: knitr

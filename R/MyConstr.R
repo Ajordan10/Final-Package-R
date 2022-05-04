@@ -7,20 +7,23 @@
 #' @param x
 #' @param y
 #' @param alpha
-#' @importFrom this is the name of the package we are importing from
-#' @return Rttest
+#'
+#'
+#'
+#' @return obj
 #'
 #' @export myttest
+
 #'
 #' @export
 #'
 #' @examples
-#'
+#' myttest(x,y,alpha)
 library(FinalProject)
 
 myttest = function(x, y, alpha){
   Rttest2 <- t.test(x, y, mu = 0, var.equal = TRUE, conf.level = 1-alpha)
-  obj <- list(data = data.frame(x=x, y=y), Confidence_Interval = Rttest2$conf.int, P.value = Rttest2$p.value, Alpha = alpha)
+  obj <- list(data = data.frame(c(x=x, y=y)), Confidence_Interval = Rttest2$conf.int, P.value = Rttest2$p.value, Alpha = alpha)
   class(obj) <- "Rttest"
   obj
 }
