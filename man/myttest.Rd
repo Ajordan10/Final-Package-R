@@ -4,7 +4,7 @@
 \alias{myttest}
 \title{myconstructor}
 \usage{
-myttest(x, y, alpha)
+myttest(x, y, alpha, paired)
 }
 \arguments{
 \item{x}{xvalue}
@@ -12,6 +12,8 @@ myttest(x, y, alpha)
 \item{y}{yvalue}
 
 \item{alpha}{alpha value}
+
+\item{paired}{paired value}
 }
 \value{
 a list
@@ -20,5 +22,5 @@ a list
 myconstructor
 }
 \examples{
-\dontrun {myttest(x, y,alpha)}
+\dontrun {myttest(x, y,alpha, paired)}
 }

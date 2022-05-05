@@ -1,25 +1,15 @@
-#' @title Constructor
+#' @title myconstructor
 #'
-#'The function will create a list output
+#' @param x xvalue
+#' @param y yvalue
+#' @param alpha alpha value
 #'
-#'The constructor makes an object filled with valuable material. The constructor function will investigate the data for evidence for a difference in the population variances - if the data supports the conclusion that the underlying variances are likely different or if paired = TRUE then an appropriate t-test is made to produce a list containing:
-#'
-#' @param x
-#' @param y
-#' @param alpha
-#'
-#'
-#'
-#' @return obj
-#'
-#' @export myttest
+#' @return a list
+#' @export
 
 #'
-#' @export
-#'
 #' @examples
-#' myttest(x,y,alpha)
-library(FinalProject)
+#' \dontrun {myttest(x, y,alpha)}
 
 myttest = function(x, y, alpha){
   Rttest2 <- t.test(x, y, mu = 0, var.equal = TRUE, conf.level = 1-alpha)

@@ -1,0 +1,23 @@
+---
+title: "What the package will print"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{What the package will print}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FinalProject)
+```
+
+# Print Pacakge
+
+## The print function will print the data set in a list as well as the pvalue, alpha, and confidence interval

@@ -1,0 +1,103 @@
+library(kableExtra)
+library(FinalProject)
+library(magrittr)
+library(ggplot2)
+
+#' @title The Constructor Function for ttest
+#'
+#' @param x
+#' @param y
+#' @param alpha
+#'
+#' @return
+#'
+#'
+#' @examples
+myttest = function(x, y, alpha){
+  if (
+    Rttest2 <- t.test(x, y, mu = 0, var.equal = TRUE, conf.level = 1-alpha)) #Paired
+    obj <- list(data = data.frame(x=x, y=y), Confidence_Interval = Rttest2$conf.int, P.value = Rttest2$p.value, Alpha = alpha)
+    class(obj) <- 'Rttest'
+    obj
+  if (Rttest2 <- t.test(x, y, mu = 0, var.equal = FALSE, conf.level = 1-alpha))
+    obj <- list(data = data.frame(x=x, y=y), Confidence_Interval = Rttest2$conf.int, P.value = Rttest2$p.value, Alpha = alpha)
+    class(obj) <- 'WELCH'
+    obj
+  if (Rttest2 <- t.test(x, y, mu = 0, paired = TRUE, conf.level = 1-alpha))
+    obj <- list(data = data.frame(x=x, y=y), Confidence_Interval = Rttest2$conf.int, P.value = Rttest2$p.value, Alpha = alpha)
+    class(obj) <- 'PAIRED'
+    obj
+}
+
+
+#' Title
+#'
+#' @param x
+#' @param ...
+#'
+#' @return
+#'
+#'
+#' @examples
+print.Rttest <- function(x,...) {
+  #data = c(Rttest$data,Rttest$Confidence_Interval,Rttest$P.value,Rttest$Alpha)
+  #Rttest$data = x[["data"]][["x"]]; x[["data"]][["y"]]
+  #dataframe = data.frame(Rttest$data)
+  #kable(dataframe)
+  kable_styling(kableExtra::kable(x[["data"]],align = "c", col.names = NULL))
+  #kable_styling(kableExtra::kable(obj$data,align = "c", col.names = NULL))
+
+}
+
+#Plot function
+#' Title
+#'
+#' @param x
+#' @param y
+#' @param xlabel
+#' @param ylabel
+#'
+#' @return
+#' @importfrom ggplot2 ggplot aes geom_point
+#'
+#' @examples
+plot.Rttest = function(x, y, xlabel ="", ylabel=""){
+  #y <- NULL #telling created inside the function. initial value
+  #data <- data.frame(x=x$x, y=x$y)
+  #Cat <- rep(c("A", "B"), c(30,30))
+  dataf <- data.frame(x=x$x, y=x$y)
+  #data.frame(MeanValue = c(x,y), TheData = Cat) -> data
+  data <- ggplot(dataf)  +geom_boxplot(aes(x= x, y= y))
+  #data.frame(MeanValue = c(x,y), TheData = Cat) -> data
+  #TheData <- ggplot(data) + geom_boxplot(aes(x = TheData, y = MeanValue, fill = TheData))
+  #TheData
+  data <-unlist(data)
+  data
+}
+
+#print(TheData)
+#data
+alpha <- 0.05
+set.seed(32); x=rnorm(30,mean=10,sd=15)
+set.seed(35); y=rnorm(30,mean=8,sd=15)
+ans1<-FinalProject::myttest(x,y,alpha=0.05)
+print(ans1)
+plot(ans1)
+
+class(ans1)
+
+set.seed(32); x=rnorm(30,mean=10,sd=5)
+set.seed(35); y=rnorm(30,mean=8,sd=15)
+ans2<-FinalProject::myttest(x,y,alpha=0.05)
+print(ans2)
+plot(ans2)
+class(ans2)
+
+set.seed(32); x=rnorm(30,mean=10,sd=15)
+set.seed(35); y = x+ rnorm(30, 5 ,4)
+ans3<-FinalProject::myttest(x,y,alpha=0.05)
+print(ans3)
+class(ans3)
+plot(ans3)
+
+

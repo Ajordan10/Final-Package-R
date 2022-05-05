@@ -17,3 +17,6 @@ Rttest
 \description{
 This function prints to the command line  A (1-alpha)100\% confidence interval for mux-muy
 }
+\examples{
+\dontrun {print.Rttest(x,...)}
+}
